@@ -1,0 +1,69 @@
+<html>
+  <head> 
+     <title>Chart.js version 2 responsive doughnut with text inside</title> 
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+     
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+     <script type="text/javascript">
+   window.onload=function(){//from  w ww  .  j a v  a  2  s.com
+var data = {
+  labels: ["Trey Hendrickson","D.J. Reader","Jessie Bates III","Joe Mixon","Tyler Boyd","Joe Burrow","B.J. Hill","Vonn Bell","Chidobe Awuzie","Sam Hubbard","Ja'Marr Chase","Alex Cappa","Jonah Williams","Mike Hilton","Ted Karras","La'el Collins","Eli Apple","Hayden Hurst","Germaine Pratt","Brandon Wilson","Tee Higgins","Samaje Perine","Drew Sample","Jackson Carman","Brandon Allen","Josh Tupou","Logan Wilson","Joseph Ossai","Trent Taylor","Akeem Davis-Gaither","Clark Harris","Cameron Sample","Tyler Shelvin","Mike Thomas","Khalid Kareem","Isaiah Prince","Trayveon Williams","D'Ante Smith","Hakeem Adeniji","Markus Bailey","Evan McPherson","Joe Bachie","Jalen Davis","Michael Thomas","Noah Spence","Trayvon Henderson","Lamont Gaillard","Trey Hill","Chris Evans","Clay Johnston","Trenton Irwin"],
+  datasets: [{
+    backgroundColor: ["rgba(164,234,186, 0.5)","rgba(212,67,49, 0.5)","rgba(190,173,209, 0.5)","rgba(99,111,103, 0.5)","rgba(254,165,181, 0.5)","rgba(191,209,93, 0.5)","rgba(101,114,24, 0.5)","rgba(251,249,188, 0.5)","rgba(245,112,209, 0.5)","rgba(123,163,96, 0.5)","rgba(18,60,3, 0.5)","rgba(112,97,190, 0.5)","rgba(254,19,200, 0.5)","rgba(191,166,128, 0.5)","rgba(25,70,82, 0.5)","rgba(226,137,244, 0.5)","rgba(244,33,11, 0.5)","rgba(14,203,154, 0.5)","rgba(162,6,244, 0.5)","rgba(82,193,247, 0.5)","rgba(167,180,217, 0.5)","rgba(250,62,25, 0.5)","rgba(158,172,247, 0.5)","rgba(156,173,128, 0.5)","rgba(203,7,220, 0.5)","rgba(54,160,131, 0.5)","rgba(72,71,190, 0.5)","rgba(45,135,180, 0.5)","rgba(206,49,165, 0.5)","rgba(144,58,180, 0.5)","rgba(122,2,166, 0.5)","rgba(64,164,251, 0.5)","rgba(136,123,163, 0.5)","rgba(158,134,24, 0.5)","rgba(253,61,208, 0.5)","rgba(10,117,100, 0.5)","rgba(224,232,149, 0.5)","rgba(140,40,212, 0.5)","rgba(196,141,4, 0.5)","rgba(163,79,218, 0.5)","rgba(133,86,71, 0.5)","rgba(168,182,89, 0.5)","rgba(203,71,180, 0.5)","rgba(90,115,109, 0.5)","rgba(190,9,51, 0.5)","rgba(83,14,116, 0.5)","rgba(195,118,126, 0.5)","rgba(74,20,185, 0.5)","rgba(35,77,158, 0.5)","rgba(196,77,137, 0.5)","rgba(76,162,161, 0.5)"],
+    borderColor: 'rgb(0, 0, 0)',
+    data: [14488235,13665441,12911000,11420588,10100000,9870037,8333333,7488235,7302941,7183000,7004464,6750000,5609598,5000000,5000000,4166666,3750000,3476466,2803221,2562500,2369124,1850000,1752003,1693173,1500000,1400000,1348798,1180140,1135000,1099377,1047500,1022037,1009140,995000,983619,965000,965000,949836,947972,923424,910929,895000,895000,895000,895000,895000,895000,873089,868222,825000,825000],
+  }]
+};
+var promisedDeliveryChart = new Chart(document.getElementById('myChart'), {
+ type: 'doughnut',
+ data: data,
+ options: {
+  plugins: [ChartDataLabels],
+  plugins: {
+    tooltip: {
+      enabled: true
+    },
+    datalabels: {
+      formatter: (value,context) => {
+        console.log(value)
+        console.log(context)
+        return context.dataset.data[0]
+      }
+    }
+  }
+  
+},
+});
+
+Chart.pluginService.register({
+ beforeDraw: function(chart) {
+   var width = chart.chart.width,
+       height = chart.chart.height,
+       ctx = chart.chart.ctx;
+   ctx.restore();
+   var fontSize = (height / 114).toFixed(2);
+   ctx.font = fontSize + "em sans-serif";
+   ctx.textBaseline = "middle";
+   var text =  "88%",
+       textX = Math.round((width - ctx.measureText(text).width) / 2),
+       textY = height / 2;
+   ctx.fillText(text, textX, textY);
+   ctx.save();
+ }
+});
+   }
+
+     </script> 
+  </head> 
+  <style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+  <p> Cincinnati Bengals</p>
+  <body> 
+     <canvas id="myChart"></canvas>  
+  </body>
+</html>
