@@ -1,71 +1,76 @@
 <html>
-  <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0-rc.1/Chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0-rc.1/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
 
-  <style>
-h2 {text-align: center;}
-p {text-align: center;}
-div {text-align: center;}
-</style>
+    <style>
+    h2 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+    </style>
 
-  <body>
-  
-  <div style=" width: 12.5%; 
-    margin: 15px auto;" class="container">
-    <h2>Chart.js — Pie Chart Demo</h2>
+    <body>
+
     <div>
-      <canvas style="position:absolute;top:540px;" id="myChart"></canvas>
+        <input class="form-control me-2" type="search" id="userInput1" placeholder="Enter City-Team Name">
+        <button type="button" class="btn btn-success"id="btn">GO</button>
     </div>
-  </div>
-  
-  <script>
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ['Cap Spent','Cap Space Left'],
-      datasets: [{
-        backgroundColor: ["rgba(255,0,0, 0.5)","rgba(0,128,0, 0.5)"],
-        borderColor: 'rgb(0, 0, 0)',
-        data: [183694108,24505892]
-      }]
-    },
-    options: {
-      plugins:{
-        legend: {
-          display: false
-       },
-       tooltips: {
-          enabled: true
-       }
-      }
-      
-    }
-  });
-  </script>
-  
-  
-  <div style=" width: 50%;
-    margin: 15px auto;" class="container">
-  <canvas id="donut" ></canvas>
-  </div>
-  <script>
-  var ctx = document.getElementById("donut").getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ["Trey Hendrickson","D.J. Reader","Jessie Bates III","Joe Mixon","Tyler Boyd","Joe Burrow","B.J. Hill","Vonn Bell","Chidobe Awuzie","Sam Hubbard","Ja'Marr Chase","Alex Cappa","Jonah Williams","Mike Hilton","Ted Karras","La'el Collins","Eli Apple","Hayden Hurst","Germaine Pratt","Brandon Wilson","Tee Higgins","Samaje Perine","Drew Sample","Jackson Carman","Brandon Allen","Josh Tupou","Logan Wilson","Joseph Ossai","Trent Taylor","Akeem Davis-Gaither","Clark Harris","Cameron Sample","Tyler Shelvin","Mike Thomas","Khalid Kareem","Isaiah Prince","Trayveon Williams","D'Ante Smith","Hakeem Adeniji","Markus Bailey","Evan McPherson","Joe Bachie","Jalen Davis","Michael Thomas","Noah Spence","Trayvon Henderson","Lamont Gaillard","Trey Hill","Chris Evans","Clay Johnston","Trenton Irwin"],
-      datasets: [{
-        backgroundColor: ["rgba(53,167,160, 0.5)","rgba(187,164,100, 0.5)","rgba(55,173,60, 0.5)","rgba(166,73,113, 0.5)","rgba(239,203,15, 0.5)","rgba(117,84,144, 0.5)","rgba(131,170,148, 0.5)","rgba(1,108,148, 0.5)","rgba(86,21,183, 0.5)","rgba(208,206,77, 0.5)","rgba(141,172,92, 0.5)","rgba(133,118,254, 0.5)","rgba(88,103,20, 0.5)","rgba(108,69,112, 0.5)","rgba(29,29,184, 0.5)","rgba(75,10,76, 0.5)","rgba(237,70,111, 0.5)","rgba(8,204,243, 0.5)","rgba(99,182,8, 0.5)","rgba(207,40,45, 0.5)","rgba(206,247,42, 0.5)","rgba(151,82,217, 0.5)","rgba(63,90,104, 0.5)","rgba(11,113,1, 0.5)","rgba(138,172,140, 0.5)","rgba(215,186,204, 0.5)","rgba(157,77,62, 0.5)","rgba(96,32,116, 0.5)","rgba(217,209,26, 0.5)","rgba(154,170,220, 0.5)","rgba(99,179,81, 0.5)","rgba(204,234,13, 0.5)","rgba(218,60,211, 0.5)","rgba(201,248,180, 0.5)","rgba(43,176,25, 0.5)","rgba(63,81,185, 0.5)","rgba(90,235,93, 0.5)","rgba(114,149,148, 0.5)","rgba(225,4,158, 0.5)","rgba(138,163,152, 0.5)","rgba(181,91,78, 0.5)","rgba(117,234,69, 0.5)","rgba(201,248,57, 0.5)","rgba(202,122,83, 0.5)","rgba(35,215,103, 0.5)","rgba(216,7,36, 0.5)","rgba(109,139,13, 0.5)","rgba(152,243,124, 0.5)","rgba(176,216,86, 0.5)","rgba(78,172,116, 0.5)","rgba(239,15,188, 0.5)"],
-        borderColor: 'rgb(0, 0, 0)',
-        data: [14488235,13665441,12911000,11420588,10100000,9870037,8333333,7488235,7302941,7183000,7004464,6750000,5609598,5000000,5000000,4166666,3750000,3476466,2803221,2562500,2369124,1850000,1752003,1693173,1500000,1400000,1348798,1180140,1135000,1099377,1047500,1022037,1009140,995000,983619,965000,965000,949836,947972,923424,910929,895000,895000,895000,895000,895000,895000,873089,868222,825000,825000],
-      }]
-    }
-  });
+    
+    <div style=" width: 12.5%; 
+        margin: 15px auto;" class="container">
+        <h2>cincinnati-bengals</h2>
+        <div>
+        <canvas style="position:absolute;top:540px;" id="myChart"></canvas>
+        </div>
+    </div>
+    
+    <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+        labels: ['Cap Spent','Cap Space Left'],
+        datasets: [{
+            backgroundColor: ["rgba(255,0,0, 0.5)","rgba(0,128,0, 0.5)"],
+            borderColor: 'rgb(0, 0, 0)',
+            data: [183694108,24505892]
+        }]
+        },
+        options: {
+        plugins:{
+            legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: true
+        }
+        }
+        
+        }
+    });
     </script>
-  </body>
-  </html>
+    
+    
+    <div style=" width: 50%;
+        margin: 15px auto;" class="container">
+    <canvas id="donut" ></canvas>
+    </div>
+    <script>
+    var ctx = document.getElementById("donut").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+        labels: ["Trey Hendrickson","D.J. Reader","Jessie Bates III","Joe Mixon","Tyler Boyd","Joe Burrow","B.J. Hill","Vonn Bell","Chidobe Awuzie","Sam Hubbard","Ja'Marr Chase","Alex Cappa","Jonah Williams","Mike Hilton","Ted Karras","La'el Collins","Eli Apple","Hayden Hurst","Germaine Pratt","Brandon Wilson","Tee Higgins","Samaje Perine","Drew Sample","Jackson Carman","Brandon Allen","Josh Tupou","Logan Wilson","Joseph Ossai","Trent Taylor","Akeem Davis-Gaither","Clark Harris","Cameron Sample","Tyler Shelvin","Mike Thomas","Khalid Kareem","Isaiah Prince","Trayveon Williams","D'Ante Smith","Hakeem Adeniji","Markus Bailey","Evan McPherson","Joe Bachie","Jalen Davis","Michael Thomas","Noah Spence","Trayvon Henderson","Lamont Gaillard","Trey Hill","Chris Evans","Clay Johnston","Trenton Irwin"],
+        datasets: [{
+            backgroundColor: ["rgba(81,156,118, 0.5)","rgba(208,23,227, 0.5)","rgba(158,226,83, 0.5)","rgba(88,10,124, 0.5)","rgba(103,168,71, 0.5)","rgba(134,171,116, 0.5)","rgba(239,55,73, 0.5)","rgba(195,75,132, 0.5)","rgba(16,29,220, 0.5)","rgba(107,247,251, 0.5)","rgba(219,225,155, 0.5)","rgba(66,233,60, 0.5)","rgba(219,152,64, 0.5)","rgba(205,250,98, 0.5)","rgba(194,93,16, 0.5)","rgba(114,33,147, 0.5)","rgba(237,160,231, 0.5)","rgba(18,203,27, 0.5)","rgba(150,149,3, 0.5)","rgba(24,220,230, 0.5)","rgba(236,232,169, 0.5)","rgba(205,49,142, 0.5)","rgba(28,4,150, 0.5)","rgba(204,201,216, 0.5)","rgba(65,40,64, 0.5)","rgba(222,217,156, 0.5)","rgba(70,150,9, 0.5)","rgba(19,229,179, 0.5)","rgba(194,77,79, 0.5)","rgba(249,242,69, 0.5)","rgba(143,103,140, 0.5)","rgba(83,96,71, 0.5)","rgba(31,7,140, 0.5)","rgba(166,154,233, 0.5)","rgba(109,34,184, 0.5)","rgba(102,102,91, 0.5)","rgba(73,213,100, 0.5)","rgba(3,225,4, 0.5)","rgba(2,185,198, 0.5)","rgba(164,180,201, 0.5)","rgba(218,96,88, 0.5)","rgba(194,224,31, 0.5)","rgba(119,135,56, 0.5)","rgba(130,52,233, 0.5)","rgba(187,63,150, 0.5)","rgba(44,23,47, 0.5)","rgba(142,249,143, 0.5)","rgba(234,112,36, 0.5)","rgba(154,198,129, 0.5)","rgba(44,72,44, 0.5)","rgba(83,54,110, 0.5)"],
+            borderColor: 'rgb(0, 0, 0)',
+            data: [14488235,13665441,12911000,11420588,10100000,9870037,8333333,7488235,7302941,7183000,7004464,6750000,5609598,5000000,5000000,4166666,3750000,3476466,2803221,2562500,2369124,1850000,1752003,1693173,1500000,1400000,1348798,1180140,1135000,1099377,1047500,1022037,1009140,995000,983619,965000,965000,949836,947972,923424,910929,895000,895000,895000,895000,895000,895000,873089,868222,825000,825000],
+        }]
+        }
+    });
+        </script>
+    </body>
+    </html>
